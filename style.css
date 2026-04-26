@@ -5,14 +5,14 @@
 }
 
 body {
-    background-color: #F2EFE9; /* Krem tonu */
+    background-color: #F2EFE9; /* Tasarımdaki krem tonu */
     font-family: 'Inter', sans-serif;
     color: #333;
-    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 header {
-    padding: 2rem 5%;
+    padding: 2.5rem 8%;
 }
 
 nav {
@@ -24,105 +24,126 @@ nav {
 .logo {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
+    font-size: 1.6rem;
+    color: #4a3c31; /* Koyu kahve tonu */
 }
 
 .logo span {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-family: 'Inter', sans-serif;
     font-weight: 300;
-    color: #888;
+    color: #7a7a7a;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
-    font-size: 0.85rem;
+    color: #666;
+    font-size: 0.9rem;
     font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+}
+
+nav ul li a.active {
+    color: #d48c6a; /* Turuncu vurgu rengi */
 }
 
 .hero {
     display: flex;
     align-items: center;
-    padding: 5% 5%;
+    padding: 0 0 0 8%;
     min-height: 80vh;
     position: relative;
 }
 
 .hero-content {
-    flex: 1.2;
+    flex: 1;
     z-index: 2;
 }
 
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
+    font-size: 4.2rem;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
-    color: #1a1a1a;
+    margin-bottom: 2rem;
+    color: #423830;
 }
 
 .hero-content p {
-    font-size: 1.05rem;
-    max-width: 520px;
-    margin-bottom: 2rem;
-    color: #444;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    color: #5a5a5a;
+}
+
+.cta-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.9rem 1.8rem;
-    background: #fff;
-    color: #d48c6a; /* Kahve/Turuncu tonu */
+    padding: 1.2rem 3rem;
+    background: white;
+    color: #d48c6a;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 500;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+.btn-arrow {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d48c6a;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
 .hero-image {
-    flex: 0.8;
+    flex: 1;
+    height: 90vh;
     display: flex;
     justify-content: flex-end;
 }
 
 .hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px; /* Fotoğrafına hafif yuvarlak köşeler ekler */
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    /* Görselin sol tarafına hafif bir geçiş efekti */
+    mask-image: linear-gradient(to left, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, black 85%, transparent 100%);
 }
 
 .wave-bg {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 80% 20%, rgba(212, 140, 106, 0.04) 0%, transparent 40%);
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: repeating-radial-gradient(circle, transparent, transparent 15px, rgba(160, 140, 120, 0.05) 16px, rgba(160, 140, 120, 0.05) 17px);
     z-index: 1;
 }
 
-/* Mobil Uyumluluk */
-@media (max-width: 968px) {
-    .hero { flex-direction: column; text-align: center; }
-    .hero-content { margin-bottom: 3rem; }
-    .hero-content h1 { font-size: 2.5rem; }
-    .hero-image { justify-content: center; }
+@media (max-width: 1024px) {
+    .hero { flex-direction: column; padding: 5%; text-align: center; }
+    .hero-content h1 { font-size: 3rem; }
+    .hero-image { height: auto; margin-top: 3rem; }
+    .hero-image img { width: 100%; height: auto; mask-image: none; }
+    .cta-area { justify-content: center; }
     nav ul { display: none; }
 }
