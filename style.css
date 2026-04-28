@@ -1,4 +1,4 @@
-/* GENEL AYARLAR VE RENK PALETİ */
+/* GENEL AYARLAR */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +6,13 @@
 }
 
 body {
-    background-color: #F2EFE9; /* Tasarımdaki yumuşak krem tonu [cite: 11, 79, 88] */
-    font-family: 'Inter', sans-serif; /* Gövde metni fontu [cite: 12, 79] */
+    background-color: #F2EFE9; /* Tasarımdaki yumuşak krem tonu */
+    font-family: 'Inter', sans-serif;
     color: #333;
     overflow-x: hidden;
 }
 
-/* NAVİGASYON (ÜST MENÜ) */
+/* NAVİGASYON */
 header {
     padding: 2.5rem 8%;
 }
@@ -24,10 +24,10 @@ nav {
 }
 
 .logo {
-    font-family: 'Playfair Display', serif; /* Başlıklar için Serif font [cite: 12, 79, 89] */
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: 1.6rem;
-    color: #4a3c31; /* Koyu kahve tonu */
+    color: #4a3c31;
 }
 
 .logo span {
@@ -41,7 +41,7 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 2.5rem; /* Menü öğeleri arası boşluk [cite: 162, 163] */
+    gap: 2.5rem;
 }
 
 nav ul li a {
@@ -50,15 +50,16 @@ nav ul li a {
     font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: 0.5px;
+    transition: 0.3s;
 }
 
-nav ul li a.active {
-    color: #d48c6a; /* Turuncu vurgu rengi [cite: 163] */
+nav ul li a.active, nav ul li a:hover {
+    color: #d48c6a;
 }
 
-/* HERO (GİRİŞ) BÖLÜMÜ */
+/* HERO BÖLÜMÜ */
 .hero {
-    display: flex; /* Split-screen (Ekranı ikiye bölen) yapı [cite: 13, 69, 163] */
+    display: flex;
     align-items: center;
     padding: 0 0 0 8%;
     min-height: 80vh;
@@ -71,7 +72,7 @@ nav ul li a.active {
 }
 
 .hero-content h1 {
-    font-family: 'Playfair Display', serif; /* [cite: 12, 89] */
+    font-family: 'Playfair Display', serif;
     font-size: 4.2rem;
     line-height: 1.1;
     margin-bottom: 2rem;
@@ -85,7 +86,7 @@ nav ul li a.active {
     color: #5a5a5a;
 }
 
-/* BUTONLAR VE AKSİYON ALANI */
+/* BUTONLAR */
 .cta-area {
     display: flex;
     align-items: center;
@@ -121,31 +122,28 @@ nav ul li a.active {
     box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
-/* HER FOTOĞRAFA UYUM SAĞLAYAN GÖRSEL ALANI */
+/* AKILLI KIRPMA SİSTEMİ */
 .hero-image {
     flex: 1;
-    height: 90vh; /* Ekranın %90'ını kaplar [cite: 163] */
+    height: 100vh;
     display: flex;
     justify-content: flex-end;
-    overflow: hidden; /* Taşmaları kırpar  */
+    overflow: hidden;
+    position: relative;
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
+    object-fit: cover; /* Görseli bozmadan sığdırır */
+    object-position: 85% center; /* Fotoğraftaki konumuna (sağa) odaklanır */
     
-    /* UNIVERSAL FIT (Her fotoyu uyduran sihirli kodlar): */
-    object-fit: cover; /* Görseli esnetmeden alanı dolduracak şekilde kırpar  */
-    object-position: center; /* Varsayılan olarak merkezi odaklar  */
-    
-    /* Eğer senin gönderdiğin gibi sağda olduğun bir fotoysa şu satırı kullanabilirsin:
-       object-position: 85% center;  */
-
-    mask-image: linear-gradient(to left, black 85%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to left, black 85%, transparent 100%);
+    /* Tasarımdaki soldan sağa yumuşak geçiş maskesi */
+    mask-image: linear-gradient(to left, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, black 80%, transparent 100%);
 }
 
-/* ARKA PLAN DETAYI */
+/* ARKA PLAN DALGA EFEKTİ */
 .wave-bg {
     position: absolute;
     top: 50%;
@@ -155,14 +153,34 @@ nav ul li a.active {
     height: 800px;
     background: repeating-radial-gradient(circle, transparent, transparent 15px, rgba(160, 140, 120, 0.05) 16px, rgba(160, 140, 120, 0.05) 17px);
     z-index: 1;
+    pointer-events: none;
 }
 
-/* MOBİL UYUMLULUK */
+/* MOBİL GÖRÜNÜM */
 @media (max-width: 1024px) {
-    .hero { flex-direction: column; padding: 5%; text-align: center; }
-    .hero-content h1 { font-size: 3rem; }
-    .hero-image { height: 50vh; width: 100%; margin-top: 2rem; }
-    .hero-image img { mask-image: none; -webkit-mask-image: none; border-radius: 20px; }
-    .cta-area { justify-content: center; }
-    nav ul { display: none; } /* Mobil menü için buton gerekebilir */
+    .hero {
+        flex-direction: column;
+        padding: 5%;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-image {
+        height: 50vh;
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .hero-image img {
+        object-position: center;
+        mask-image: none;
+        -webkit-mask-image: none;
+        border-radius: 20px;
+    }
+    .cta-area {
+        justify-content: center;
+    }
+    nav ul {
+        display: none; /* Mobil menü ileride eklenebilir */
+    }
 }
