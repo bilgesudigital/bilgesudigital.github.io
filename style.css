@@ -1,4 +1,4 @@
-/* TEMEL AYARLAR */
+/* GENEL AYARLAR VE RENK PALETİ */
 * {
     margin: 0;
     padding: 0;
@@ -6,89 +6,117 @@
 }
 
 body {
-    background-color: #F2EFE9; /* Hedefteki krem tonu */
-    font-family: 'Inter', sans-serif;
-    color: #333;
+    background-color: #F2EFE9; /* Tasarımdaki yumuşak krem/bej tonu [cite: 11, 79, 88] */
+    font-family: 'Inter', sans-serif; /* Gövde metinleri [cite: 12, 79] */
+    color: #4A3B32;
     overflow-x: hidden;
+    position: relative;
 }
 
-/* ÜST MENÜ */
+/* ARKA PLANDAKİ ZARİF DALGA DESENİ [cite: 14, 70] */
+.wave-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* CSS ile tasarımdaki ince çizgilere en yakın form [cite: 225, 273] */
+    background: repeating-radial-gradient(
+        circle at 20% 80%, 
+        transparent, 
+        transparent 25px, 
+        rgba(150, 130, 110, 0.05) 26px, 
+        rgba(150, 130, 110, 0.05) 27px
+    );
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ÜST MENÜ (HEADER) */
 header {
-    padding: 2.5rem 8%;
-}
-
-nav {
+    padding: 3rem 6%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 10;
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif; /* Başlıklar için Serif font [cite: 12, 89] */
     font-weight: 700;
-    font-size: 1.6rem;
-    color: #4a3c31;
-    line-height: 1.1;
+    font-size: 1.8rem;
+    color: #5D4A3A;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
 }
 
 .logo span {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-family: 'Inter', sans-serif;
     font-weight: 300;
-    color: #7a7a7a;
+    color: #8A7360;
+    letter-spacing: 1px;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 2.5rem;
+    gap: 3rem; /* Menüler arası ferah boşluk [cite: 162, 163] */
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #666;
-    font-size: 0.9rem;
-    font-weight: 600;
+    color: #8A7360;
+    font-size: 0.95rem;
+    font-weight: 400;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
-nav ul li a.active, nav ul li a:hover {
-    color: #d48c6a;
+nav ul li a:hover {
+    color: #C56F43;
 }
 
-/* GİRİŞ ALANI (HERO) */
+/* GİRİŞ BÖLÜMÜ (HERO) [cite: 13, 69, 163] */
 .hero {
     display: flex;
     align-items: center;
-    padding: 0 0 0 8%;
-    min-height: 85vh;
+    padding-left: 6%;
+    height: calc(100vh - 140px); /* Menü yüksekliğini çıkararak tam ekrana oturtma */
+    min-height: 600px;
     position: relative;
 }
 
+/* SOL METİN ALANI */
 .hero-content {
-    flex: 1;
-    z-index: 10;
+    flex: 0 0 45%;
+    z-index: 2;
+    margin-top: -5%; /* Metni görselin ağırlık merkezine göre hafif yukarı alma */
 }
 
 .hero-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4.5rem;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    color: #423830;
+    font-family: 'Playfair Display', serif; /* [cite: 12, 89] */
+    font-size: 4.8rem;
+    line-height: 1.15;
+    margin-bottom: 2rem;
+    color: #463527;
     font-weight: 700;
+    letter-spacing: -1px;
 }
 
 .hero-content p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     margin-bottom: 3.5rem;
-    color: #5a5a5a;
-    max-width: 500px;
+    color: #4A3B32;
+    font-weight: 400;
+    max-width: 90%;
 }
 
-/* BUTONLAR */
+/* BUTONLAR VE AKSİYON ALANI */
 .cta-area {
     display: flex;
     align-items: center;
@@ -96,71 +124,99 @@ nav ul li a.active, nav ul li a:hover {
 }
 
 .btn {
-    padding: 1.3rem 3.8rem;
-    background: white;
-    color: #d48c6a;
+    padding: 1.1rem 2.8rem;
+    background: #FFFFFF;
+    color: #C56F43; /* Tasarımdaki turuncu tonu */
     text-decoration: none;
     border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    font-weight: 400;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
 }
 
 .btn-arrow {
-    width: 60px;
-    height: 60px;
-    background: white;
+    width: 55px;
+    height: 55px;
+    background: #FFFFFF;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #d48c6a;
-    font-size: 1.6rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    color: #C56F43;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
 }
 
-/* "BEYAZ ŞERİT" VE AKILLI KIRPMA */
+.btn:hover, .btn-arrow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* SAĞ GÖRSEL ALANI VE AKILLI KIRPMA [cite: 188, 191] */
 .hero-image {
-    flex: 1.4;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-end;
-    overflow: hidden;
     position: absolute;
     right: 0;
     top: 0;
+    width: 60%;
+    height: 100vh; 
     z-index: 1;
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: 85% center; /* Sağ tarafa odaklanma */
+    /* Boyutu ne olursa olsun bozmadan doldurur  */
+    object-fit: cover; 
+    /* Senin fotoğrafına özel, kişiyi merkeze almak için sağa hizalar [cite: 193] */
+    object-position: 70% center; 
     
-    /* İSTEDİĞİN YUMUŞAK GEÇİŞ (Gradient Mask) */
-    mask-image: linear-gradient(to left, black 60%, transparent 95%);
-    -webkit-mask-image: linear-gradient(to left, black 60%, transparent 95%);
+    /* GÖRSELDEKİ BEYAZ ŞERİT (KUSURSUZ YUMUŞAK GEÇİŞ) [cite: 310, 311, 314] */
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,1) 45%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,1) 45%);
 }
 
-/* ARKA PLAN DESENİ */
-.wave-bg {
-    position: absolute;
-    top: 50%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    width: 1000px;
-    height: 1000px;
-    background: repeating-radial-gradient(circle, transparent, transparent 18px, rgba(160, 140, 120, 0.05) 19px, rgba(160, 140, 120, 0.05) 20px);
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* MOBİL GÖRÜNÜM */
+/* MOBİL GÖRÜNÜM İÇİN OPTİMİZASYON */
 @media (max-width: 1024px) {
-    .hero { flex-direction: column; padding: 5%; text-align: center; }
-    .hero-content h1 { font-size: 3.2rem; }
-    .hero-image { position: relative; height: 50vh; width: 110%; margin-top: 3rem; }
-    .hero-image img { mask-image: none; -webkit-mask-image: none; border-radius: 30px; object-position: center; }
-    nav ul { display: none; }
+    .hero {
+        flex-direction: column;
+        padding: 5%;
+        text-align: center;
+        height: auto;
+    }
+    header {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    .hero-content {
+        flex: 1;
+        margin-top: 2rem;
+        padding-right: 0;
+    }
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    .cta-area {
+        justify-content: center;
+    }
+    .hero-image {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        margin-top: 3rem;
+    }
+    .hero-image img {
+        /* Mobilde geçiş efekti yerine köşeleri yuvarlatılmış temiz bir kutu */
+        mask-image: none;
+        -webkit-mask-image: none;
+        border-radius: 20px;
+        object-position: center;
+    }
 }
