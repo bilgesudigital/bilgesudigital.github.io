@@ -36,7 +36,7 @@ body {
 /* ÜST MENÜ (HEADER) */
 header {
     height: 200px;
-    padding: 0 6%;
+    padding: 0 clamp(60px, 5.8vw, 116px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,11 +71,15 @@ header {
 }
 
 /* MENÜ */
+nav {
+    margin-left: auto;
+}
+
 nav ul {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 4.2rem;   /* menüler arası boşluk */
+    gap: clamp(48px, 4.2vw, 82px);
     margin: 0;
     padding: 0;
 }
