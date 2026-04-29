@@ -1,54 +1,50 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bilgesu Erdihan</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilgesu Erdihan | Portfolyo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="wave-bg"></div>
 
-  <header class="site-header">
-    <div class="brand">
-      <h1>BİLGESU ERDİHAN</h1>
-      <p>@bilgesu.digital</p>
-    </div>
-
-    <nav class="main-nav">
-      <a href="#" class="active">HAKKIMDA</a>
-      <a href="#">DENEYİM</a>
-      <a href="#">İŞLERİM</a>
-      <a href="#">HİZMETLER</a>
-      <a href="#">İLETİŞİM</a>
-    </nav>
-  </header>
-
-  <main class="hero">
-    <section class="hero-content">
-      <div class="pattern"></div>
-
-      <div class="hero-text">
-        <h2>E-Ticaret &amp; Marka<br>Stratejisti</h2>
-
-        <p>
-          Dijital dünyada marka hikayeleri inşa eden,<br>
-          sonuç ve veri odaklı profesyonel.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#" class="primary-btn">BENİ TANIYIN</a>
-          <a href="#" class="circle-btn" aria-label="Devam">
-            <span>›</span>
-          </a>
+    <header>
+        <div class="logo">
+            BİLGESU ERDİHAN
+            <span>@bilgesu.digital</span>
         </div>
-      </div>
-    </section>
+        <nav>
+            <ul>
+                <li><a href="hakkimda.html">HAKKIMDA</a></li>
+                <li><a href="deneyim.html">DENEYİM</a></li>
+                <li><a href="islerim.html">İŞLERİM</a></li>
+                <li><a href="hizmetler.html">HİZMETLER</a></li>
+                <li><a href="iletisim.html">İLETİŞİM</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section class="hero-image">
-      <div class="image-fade"></div>
-      <img src="home.png" alt="Bilgesu Erdihan" />
-    </section>
-  </main>
-
+    <main class="hero">
+        <div class="hero-content">
+            <h1>E-Ticaret & Marka<br>Stratejisti</h1>
+            <p>Dijital dünyada marka hikayeleri inşa eden,<br>sonuç ve veri odaklı profesyonel.</p>
+            <div class="cta-area">
+                <a href="hakkimda.html" class="btn">BENİ TANIYIN</a>
+                <a href="hakkimda.html" class="btn-arrow">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <img src="img/home.png" alt="Bilgesu Erdihan">
+        </div>
+    </main>
 </body>
 </html>
