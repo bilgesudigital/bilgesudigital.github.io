@@ -5,29 +5,36 @@
     box-sizing: border-box;
 }
 
+html,
 body {
-    background-color: #F2EFE9; /* Tasarımdaki yumuşak krem/bej tonu [cite: 11, 79, 88] */
-    font-family: 'Inter', sans-serif; /* Gövde metinleri [cite: 12, 79] */
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: #F2EFE9;
+    font-family: 'Inter', sans-serif;
     color: #4A3B32;
     overflow-x: hidden;
     position: relative;
 }
 
-/* ARKA PLANDAKİ ZARİF DALGA DESENİ [cite: 14, 70] */
+/* ARKA PLANDAKİ ZARİF DALGA DESENİ */
 .wave-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* CSS ile tasarımdaki ince çizgilere en yakın form [cite: 225, 273] */
+
     background: repeating-radial-gradient(
-        circle at 20% 80%, 
-        transparent, 
-        transparent 25px, 
-        rgba(150, 130, 110, 0.05) 26px, 
+        circle at 20% 80%,
+        transparent,
+        transparent 25px,
+        rgba(150, 130, 110, 0.05) 26px,
         rgba(150, 130, 110, 0.05) 27px
     );
+
     z-index: -1;
     pointer-events: none;
 }
@@ -102,40 +109,46 @@ nav ul li a.active {
     color: #D97835;
 }
 
-/* GİRİŞ BÖLÜMÜ (HERO) [cite: 13, 69, 163] */
+/* GİRİŞ BÖLÜMÜ (HERO) */
 .hero {
     display: flex;
     align-items: center;
     padding-left: 6%;
-    height: calc(100vh - 180px); /* Menü yüksekliğini çıkararak tam ekrana oturtma */
+
+    /* Header 180px olduğu için geri kalan alan hero olur */
+    height: calc(100vh - 180px);
     min-height: 600px;
+
     position: relative;
+    overflow: hidden;
 }
 
 /* SOL METİN ALANI */
 .hero-content {
-    flex: 0 0 45%;
+    flex: 0 0 52%;
     z-index: 2;
-    margin-top: -5%; /* Metni görselin ağırlık merkezine göre hafif yukarı alma */
+    margin-top: -2%;
+    max-width: 780px;
 }
 
 .hero-content h1 {
-    font-family: 'Playfair Display', serif; /* [cite: 12, 89] */
-    font-size: 4.8rem;
-    line-height: 1.15;
-    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 68px;
+    line-height: 1.02;
+    margin-bottom: 92px;
     color: #463527;
     font-weight: 700;
     letter-spacing: -1px;
 }
 
 .hero-content p {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    margin-bottom: 3.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    line-height: 1.45;
+    margin-bottom: 64px;
     color: #4A3B32;
     font-weight: 400;
-    max-width: 90%;
+    max-width: 780px;
 }
 
 /* BUTONLAR VE AKSİYON ALANI */
@@ -148,7 +161,7 @@ nav ul li a.active {
 .btn {
     padding: 1.1rem 2.8rem;
     background: #FFFFFF;
-    color: #C56F43; /* Tasarımdaki turuncu tonu */
+    color: #C56F43;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 400;
@@ -172,70 +185,124 @@ nav ul li a.active {
     transition: all 0.3s ease;
 }
 
-.btn:hover, .btn-arrow:hover {
+.btn:hover,
+.btn-arrow:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.06);
 }
 
-/* SAĞ GÖRSEL ALANI VE AKILLI KIRPMA [cite: 188, 191] */
+/* SAĞ GÖRSEL ALANI */
 .hero-image {
     position: absolute;
     right: 0;
     top: 0;
+    bottom: 0;
+
     width: 35%;
-    height: (100vh); 
+    height: 100%;
+
     z-index: 1;
+    overflow: hidden;
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
-    /* Boyutu ne olursa olsun bozmadan doldurur  */
-    object-fit: cover; 
-    /* Senin fotoğrafına özel, kişiyi merkeze almak için sağa hizalar [cite: 193] */
-    object-position: 70% center; 
-    
-    /* GÖRSELDEKİ BEYAZ ŞERİT (KUSURSUZ YUMUŞAK GEÇİŞ) [cite: 310, 311, 314] */
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,1) 45%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,1) 45%);
+    display: block;
+
+    /* Görsel oranı bozulmadan alanı doldurur */
+    object-fit: cover;
+    object-position: 70% center;
+
+    /* Soldan yumuşak beyaz geçiş */
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0,0,0,0.05) 15%,
+        rgba(0,0,0,0.5) 30%,
+        rgba(0,0,0,1) 45%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0,0,0,0.05) 15%,
+        rgba(0,0,0,0.5) 30%,
+        rgba(0,0,0,1) 45%
+    );
 }
 
 /* MOBİL GÖRÜNÜM İÇİN OPTİMİZASYON */
 @media (max-width: 1024px) {
-    .hero {
-        flex-direction: column;
-        padding: 5%;
-        text-align: center;
-        height: auto;
-    }
     header {
+        height: auto;
+        min-height: 180px;
+        padding: 36px 32px;
         flex-direction: column;
         gap: 1.5rem;
     }
+
+    .logo {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .logo span {
+        font-size: 17px;
+    }
+
+    nav {
+        margin-left: 0;
+    }
+
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
         gap: 1.5rem;
     }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 5%;
+        text-align: center;
+        height: auto;
+        min-height: auto;
+    }
+
     .hero-content {
         flex: 1;
         margin-top: 2rem;
         padding-right: 0;
+        max-width: 100%;
     }
+
     .hero-content h1 {
         font-size: 3.5rem;
+        margin-bottom: 2rem;
     }
+
+    .hero-content p {
+        font-size: 1.4rem;
+        margin-bottom: 3rem;
+        max-width: 100%;
+    }
+
     .cta-area {
         justify-content: center;
     }
+
     .hero-image {
         position: relative;
         width: 100%;
         height: 50vh;
         margin-top: 3rem;
     }
+
     .hero-image img {
-        /* Mobilde geçiş efekti yerine köşeleri yuvarlatılmış temiz bir kutu */
         mask-image: none;
         -webkit-mask-image: none;
         border-radius: 20px;
