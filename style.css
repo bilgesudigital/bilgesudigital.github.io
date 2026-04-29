@@ -1,222 +1,333 @@
-/* GENEL AYARLAR VE RENK PALETİ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;800;900&display=swap');
+
+:root {
+  --dark-brown: #5a3718;
+  --medium-brown: #7a552b;
+  --orange: #e85d04;
+  --cream: #efe6d8;
+  --line: rgba(122, 85, 43, 0.16);
+  --white: #ffffff;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
-    background-color: #F2EFE9; /* Tasarımdaki yumuşak krem/bej tonu [cite: 11, 79, 88] */
-    font-family: 'Inter', sans-serif; /* Gövde metinleri [cite: 12, 79] */
-    color: #4A3B32;
-    overflow-x: hidden;
-    position: relative;
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--dark-brown);
+  overflow-x: hidden;
 }
 
-/* ARKA PLANDAKİ ZARİF DALGA DESENİ [cite: 14, 70] */
-.wave-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* CSS ile tasarımdaki ince çizgilere en yakın form [cite: 225, 273] */
-    background: repeating-radial-gradient(
-        circle at 20% 80%, 
-        transparent, 
-        transparent 25px, 
-        rgba(150, 130, 110, 0.05) 26px, 
-        rgba(150, 130, 110, 0.05) 27px
-    );
-    z-index: -1;
-    pointer-events: none;
+/* ÜST BEYAZ ALAN */
+.site-header {
+  width: 100%;
+  height: 286px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  padding: 0 116px;
+  gap: 60px;
 }
 
-/* ÜST MENÜ (HEADER) */
-header {
-    padding: 3rem 6%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 10;
+.brand {
+  min-width: 430px;
 }
 
-.logo {
-    font-family: 'Playfair Display', serif; /* Başlıklar için Serif font [cite: 12, 89] */
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: #5D4A3A;
-    line-height: 1.3;
-    letter-spacing: 0.5px;
+.brand h1 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 46px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: var(--medium-brown);
 }
 
-.logo span {
-    display: block;
-    font-size: 0.95rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    color: #8A7360;
-    letter-spacing: 1px;
+.brand p {
+  margin: 26px 0 0;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: var(--medium-brown);
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 3rem; /* Menüler arası ferah boşluk [cite: 162, 163] */
+.main-nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 58px;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #8A7360;
-    font-size: 0.95rem;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
+.main-nav a {
+  text-decoration: none;
+  color: var(--medium-brown);
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
-nav ul li a:hover {
-    color: #C56F43;
+.main-nav a.active {
+  color: var(--orange);
 }
 
-/* GİRİŞ BÖLÜMÜ (HERO) [cite: 13, 69, 163] */
+/* HERO */
 .hero {
-    display: flex;
-    align-items: center;
-    padding-left: 6%;
-    height: calc(100vh - 140px); /* Menü yüksekliğini çıkararak tam ekrana oturtma */
-    min-height: 600px;
-    position: relative;
+  width: 100%;
+  min-height: calc(100vh - 286px);
+  display: grid;
+  grid-template-columns: 69.8% 30.2%;
+  background: var(--cream);
+  overflow: hidden;
 }
 
-/* SOL METİN ALANI */
 .hero-content {
-    flex: 0 0 45%;
-    z-index: 2;
-    margin-top: -5%; /* Metni görselin ağırlık merkezine göre hafif yukarı alma */
+  position: relative;
+  min-height: calc(100vh - 286px);
+  background: var(--cream);
+  overflow: hidden;
 }
 
-.hero-content h1 {
-    font-family: 'Playfair Display', serif; /* [cite: 12, 89] */
-    font-size: 4.8rem;
-    line-height: 1.15;
-    margin-bottom: 2rem;
-    color: #463527;
-    font-weight: 700;
-    letter-spacing: -1px;
+.pattern {
+  position: absolute;
+  inset: -120px -180px -160px -260px;
+  background:
+    repeating-radial-gradient(
+      ellipse 760px 470px at 64% 82%,
+      transparent 0,
+      transparent 17px,
+      var(--line) 18px,
+      var(--line) 20px
+    ),
+    repeating-radial-gradient(
+      ellipse 690px 390px at 24% 42%,
+      transparent 0,
+      transparent 21px,
+      rgba(122, 85, 43, 0.09) 22px,
+      rgba(122, 85, 43, 0.09) 24px
+    );
+  transform: rotate(-10deg);
+  opacity: 0.95;
+  pointer-events: none;
 }
 
-.hero-content p {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    margin-bottom: 3.5rem;
-    color: #4A3B32;
-    font-weight: 400;
-    max-width: 90%;
+.hero-text {
+  position: relative;
+  z-index: 2;
+  padding-left: 154px;
+  padding-top: 160px;
 }
 
-/* BUTONLAR VE AKSİYON ALANI */
-.cta-area {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
+.hero-text h2 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(58px, 3.85vw, 78px);
+  line-height: 0.98;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: var(--dark-brown);
 }
 
-.btn {
-    padding: 1.1rem 2.8rem;
-    background: #FFFFFF;
-    color: #C56F43; /* Tasarımdaki turuncu tonu */
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 400;
-    font-size: 1.05rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    transition: all 0.3s ease;
-    letter-spacing: 0.5px;
+.hero-text p {
+  margin: 135px 0 0;
+  font-size: clamp(30px, 2vw, 43px);
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: var(--dark-brown);
 }
 
-.btn-arrow {
-    width: 55px;
-    height: 55px;
-    background: #FFFFFF;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #C56F43;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    transition: all 0.3s ease;
+.hero-actions {
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 
-.btn:hover, .btn-arrow:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+.primary-btn,
+.circle-btn {
+  text-decoration: none;
+  background: var(--white);
+  color: var(--orange);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* SAĞ GÖRSEL ALANI VE AKILLI KIRPMA [cite: 188, 191] */
+.primary-btn {
+  width: 348px;
+  height: 82px;
+  border-radius: 999px;
+  font-size: 29px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.circle-btn {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+}
+
+.circle-btn span {
+  display: block;
+  transform: translateY(-2px);
+  font-size: 74px;
+  line-height: 0.7;
+  font-weight: 400;
+}
+
+/* SAĞ GÖRSEL */
 .hero-image {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 60%;
-    height: 100vh; 
-    z-index: 1;
+  position: relative;
+  min-height: calc(100vh - 286px);
+  overflow: hidden;
+  background: var(--cream);
 }
 
 .hero-image img {
-    width: 100%;
-    height: 100%;
-    /* Boyutu ne olursa olsun bozmadan doldurur  */
-    object-fit: cover; 
-    /* Senin fotoğrafına özel, kişiyi merkeze almak için sağa hizalar [cite: 193] */
-    object-position: 70% center; 
-    
-    /* GÖRSELDEKİ BEYAZ ŞERİT (KUSURSUZ YUMUŞAK GEÇİŞ) [cite: 310, 311, 314] */
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,1) 45%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 15%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,1) 45%);
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  /* Görsel bozulmaz, oranı korunur */
+  object-fit: cover;
+  object-position: center center;
 }
 
-/* MOBİL GÖRÜNÜM İÇİN OPTİMİZASYON */
-@media (max-width: 1024px) {
-    .hero {
-        flex-direction: column;
-        padding: 5%;
-        text-align: center;
-        height: auto;
-    }
-    header {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-    }
-    .hero-content {
-        flex: 1;
-        margin-top: 2rem;
-        padding-right: 0;
-    }
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-    .cta-area {
-        justify-content: center;
-    }
-    .hero-image {
-        position: relative;
-        width: 100%;
-        height: 50vh;
-        margin-top: 3rem;
-    }
-    .hero-image img {
-        /* Mobilde geçiş efekti yerine köşeleri yuvarlatılmış temiz bir kutu */
-        mask-image: none;
-        -webkit-mask-image: none;
-        border-radius: 20px;
-        object-position: center;
-    }
+.image-fade {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 38%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    var(--cream) 0%,
+    rgba(239, 230, 216, 0.96) 18%,
+    rgba(239, 230, 216, 0.64) 48%,
+    rgba(239, 230, 216, 0) 100%
+  );
+}
+
+/* ORTA EKRAN */
+@media (max-width: 1200px) {
+  .site-header {
+    height: auto;
+    min-height: 190px;
+    padding: 48px 56px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 28px 42px;
+  }
+
+  .main-nav a {
+    font-size: 24px;
+  }
+
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    min-height: 680px;
+  }
+
+  .hero-text {
+    padding: 110px 56px 80px;
+  }
+
+  .hero-text p {
+    margin-top: 80px;
+  }
+
+  .hero-image {
+    min-height: 620px;
+  }
+
+  .image-fade {
+    width: 100%;
+    height: 28%;
+    background: linear-gradient(
+      to bottom,
+      var(--cream) 0%,
+      rgba(239, 230, 216, 0) 100%
+    );
+  }
+}
+
+/* TELEFON */
+@media (max-width: 640px) {
+  .site-header {
+    padding: 36px 28px;
+  }
+
+  .brand h1 {
+    font-size: 34px;
+  }
+
+  .brand p {
+    font-size: 18px;
+    letter-spacing: 4px;
+  }
+
+  .main-nav a {
+    font-size: 18px;
+  }
+
+  .hero-content {
+    min-height: 560px;
+  }
+
+  .hero-text {
+    padding: 78px 28px 60px;
+  }
+
+  .hero-text h2 {
+    font-size: 46px;
+  }
+
+  .hero-text p {
+    margin-top: 58px;
+    font-size: 24px;
+  }
+
+  .primary-btn {
+    width: 230px;
+    height: 64px;
+    font-size: 20px;
+  }
+
+  .circle-btn {
+    width: 64px;
+    height: 64px;
+  }
+
+  .circle-btn span {
+    font-size: 56px;
+  }
 }
