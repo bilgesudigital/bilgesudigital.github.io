@@ -66,7 +66,7 @@
         color: #4A2F1C;
         margin: 0 0 18px;
     }
-    
+
     .about-text p {
         font-family: 'Inter', sans-serif;
         font-size: 30.8px;
@@ -89,6 +89,8 @@
     /* ORTAK BALON */
     .bubble {
         position: absolute;
+        aspect-ratio: 1 / 1;
+
         background-image: url("img/about/balon.png");
         background-repeat: no-repeat;
         background-position: center;
@@ -98,11 +100,9 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-
-        aspect-ratio: 1 / 1;
     }
 
-    /* BALON İÇİ YAZI */
+    /* BALON İÇİ YAZI - TÜM BALONLARDA TEK KAYNAK */
     .bubble-text {
         font-family: 'DM Sans', 'Inter', sans-serif;
         font-size: 21.9px;
@@ -117,25 +117,7 @@
         margin: 0 auto;
     }
 
-    /* 2. BALON
-       beyaz alan yüksekliğinin 4/5'i = %80 */
-    .bubble-two {
-        height: 80%;
-        left: 28%;
-        top: 2%;
-    }
-
-    .bubble-two .bubble-text {
-        width: 72%;
-        max-width: 72%;
-        font-size: 28px;
-        line-height: 1.32;
-    }
-
-    /* 1. BALON
-       çap = %55
-       referans = ALT KENAR
-       2. balonun alt çizgisine göre biraz daha aşağı */
+    /* 1. BALON */
     .bubble-one {
         height: 55%;
         left: 6%;
@@ -147,9 +129,20 @@
         max-width: 68%;
     }
 
-    /* 3. BALON
-       çap = %50
-       yükseklik merkezi, 1 ve 2'nin merkezlerinin ortasında */
+    /* 2. BALON */
+    .bubble-two {
+        height: 80%;
+        left: 28%;
+        top: 2%;
+    }
+
+    .bubble-two .bubble-text {
+        width: 72%;
+        max-width: 72%;
+        line-height: 1.32;
+    }
+
+    /* 3. BALON */
     .bubble-three {
         height: 50%;
         left: 53%;
@@ -159,12 +152,9 @@
     .bubble-three .bubble-text {
         width: 70%;
         max-width: 70%;
-        font-size: 28px;
     }
 
-    /* 4. BALON
-       en büyük balon
-       çap = %92 */
+    /* 4. BALON */
     .bubble-four {
         height: 92%;
         right: 4%;
@@ -174,7 +164,6 @@
     .bubble-four .bubble-text {
         width: 68%;
         max-width: 68%;
-        font-size: 29px;
         line-height: 1.32;
     }
 }
@@ -264,6 +253,17 @@
         bottom: auto;
         width: 320px;
         height: 320px;
+        aspect-ratio: 1 / 1;
+
+        background-image: url("img/about/balon.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     .bubble-four {
@@ -273,7 +273,7 @@
 
     .bubble-text {
         font-family: 'DM Sans', 'Inter', sans-serif;
-        font-size: 24px;
+        font-size: 21.9px;
         font-weight: 800;
         font-style: italic;
         line-height: 1.35;
@@ -281,11 +281,29 @@
         width: 72%;
         max-width: 72%;
         text-align: center;
+        margin: 0 auto;
     }
 
-    .bubble-two .bubble-text,
+    .bubble-one .bubble-text {
+        width: 68%;
+        max-width: 68%;
+    }
+
+    .bubble-two .bubble-text {
+        width: 72%;
+        max-width: 72%;
+        line-height: 1.32;
+    }
+
+    .bubble-three .bubble-text {
+        width: 70%;
+        max-width: 70%;
+    }
+
     .bubble-four .bubble-text {
-        font-size: 24px;
+        width: 68%;
+        max-width: 68%;
+        line-height: 1.32;
     }
 }
 
@@ -330,7 +348,7 @@
     }
 
     .bubble-text {
-        font-size: 20px;
+        font-size: 21.9px;
         line-height: 1.32;
         width: 74%;
         max-width: 74%;
