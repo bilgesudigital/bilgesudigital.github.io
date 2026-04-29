@@ -1,0 +1,261 @@
+/* HAKKIMDA SAYFASI */
+
+.about-page {
+    width: 100%;
+    min-height: calc(100vh - 180px);
+    background: #ffffff;
+    color: #4A3B32;
+    overflow: hidden;
+}
+
+/* ÜST AKADEMİK ALAN */
+.about-hero {
+    width: 100%;
+    height: 390px;
+    background: #EFE6D8;
+    display: grid;
+    grid-template-columns: 34% 66%;
+    align-items: center;
+    position: relative;
+}
+
+/* SOL YUVARLAK FOTOĞRAF */
+.about-photo {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid #ffffff;
+    margin-left: 140px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+}
+
+.about-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* SAĞ BAŞLIK VE AÇIKLAMA */
+.about-text {
+    padding-right: 110px;
+    text-align: center;
+}
+
+.about-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    color: #4A2F1C;
+    margin: 0 0 42px;
+}
+
+.about-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #4A3B32;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* BALONCUK ALANI */
+.about-bubbles {
+    width: 100%;
+    height: 460px;
+    background: #ffffff;
+    position: relative;
+}
+
+/* ORTAK BALON STİLİ */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(60, 48, 40, 0.92);
+    line-height: 1.6;
+
+    background:
+        radial-gradient(circle at 28% 22%,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.85) 18%,
+            rgba(235, 224, 205, 0.35) 34%,
+            rgba(255, 255, 255, 0.65) 58%,
+            rgba(222, 207, 181, 0.45) 100%
+        );
+
+    box-shadow:
+        inset 16px 18px 28px rgba(255, 255, 255, 0.85),
+        inset -18px -22px 28px rgba(173, 146, 105, 0.22),
+        0 12px 26px rgba(120, 95, 60, 0.14);
+
+    border: 2px solid rgba(220, 205, 180, 0.38);
+}
+
+/* CAM PARLAMA EFEKTLERİ */
+.bubble::before {
+    content: "";
+    position: absolute;
+    width: 32%;
+    height: 18%;
+    top: 16%;
+    left: 18%;
+    border-radius: 50%;
+    transform: rotate(-35deg);
+    background: rgba(255, 255, 255, 0.65);
+    filter: blur(2px);
+}
+
+.bubble::after {
+    content: "";
+    position: absolute;
+    width: 18%;
+    height: 18%;
+    right: 22%;
+    bottom: 22%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow:
+        18px -12px 0 rgba(255, 255, 255, 0.25),
+        -14px 16px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* BALON BOYUTLARI */
+.bubble-small {
+    width: 300px;
+    height: 300px;
+    font-size: 28px;
+}
+
+.bubble-medium {
+    width: 300px;
+    height: 300px;
+    font-size: 28px;
+}
+
+.bubble-large {
+    width: 360px;
+    height: 360px;
+    font-size: 28px;
+}
+
+/* BALON KONUMLARI */
+.about-bubbles .bubble:nth-child(1) {
+    left: 95px;
+    top: 95px;
+}
+
+.about-bubbles .bubble:nth-child(2) {
+    left: 410px;
+    top: -105px;
+}
+
+.about-bubbles .bubble:nth-child(3) {
+    left: 920px;
+    top: 90px;
+}
+
+.about-bubbles .bubble:nth-child(4) {
+    right: 165px;
+    top: -25px;
+}
+
+/* TABLET */
+@media (max-width: 1200px) {
+    .about-hero {
+        height: auto;
+        min-height: 520px;
+        grid-template-columns: 1fr;
+        padding: 60px 40px;
+        text-align: center;
+    }
+
+    .about-photo {
+        margin: 0 auto 40px;
+        width: 230px;
+        height: 230px;
+    }
+
+    .about-text {
+        padding-right: 0;
+    }
+
+    .about-text h1 {
+        font-size: 48px;
+    }
+
+    .about-text p {
+        font-size: 26px;
+    }
+
+    .about-bubbles {
+        height: auto;
+        min-height: 900px;
+        padding: 60px 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        place-items: center;
+    }
+
+    .bubble,
+    .about-bubbles .bubble:nth-child(n) {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+    }
+}
+
+/* TELEFON */
+@media (max-width: 640px) {
+    .about-hero {
+        padding: 48px 24px;
+    }
+
+    .about-photo {
+        width: 190px;
+        height: 190px;
+        border-width: 6px;
+    }
+
+    .about-text h1 {
+        font-size: 34px;
+        line-height: 1.18;
+        margin-bottom: 28px;
+    }
+
+    .about-text p {
+        font-size: 20px;
+        line-height: 1.45;
+    }
+
+    .about-bubbles {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 50px 24px;
+        gap: 28px;
+    }
+
+    .bubble-small,
+    .bubble-medium,
+    .bubble-large {
+        width: 260px;
+        height: 260px;
+        font-size: 21px;
+    }
+}
