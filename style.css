@@ -33,6 +33,7 @@ body {
 }
 
 /* ÜST MENÜ (HEADER) */
+/* ÜST MENÜ (HEADER) */
 header {
     height: 285px;
     padding: 0 6%;
@@ -44,37 +45,49 @@ header {
     background-color: #ffffff;
 }
 
+/* LOGO ALANI */
 .logo {
-    font-family: 'Playfair Display', serif; /* Başlıklar için Serif font [cite: 12, 89] */
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: 1.8rem;
     color: #5D4A3A;
-    line-height: 1.3;
+    line-height: 1.05;
     letter-spacing: 0.5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .logo span {
     display: block;
+    margin-top: 16px;
     font-size: 0.95rem;
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     color: #8A7360;
     letter-spacing: 1px;
+    line-height: 1;
 }
 
+/* MENÜ */
 nav ul {
     display: flex;
+    align-items: center;
     list-style: none;
-    gap: 3rem; /* Menüler arası ferah boşluk [cite: 162, 163] */
+    gap: 3rem;
 }
 
 nav ul li a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: #8A7360;
     font-size: 0.95rem;
     font-weight: 400;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    line-height: 1;
     transition: color 0.3s ease;
 }
 
