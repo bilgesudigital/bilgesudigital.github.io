@@ -33,9 +33,8 @@ body {
 }
 
 /* ÜST MENÜ (HEADER) */
-/* ÜST MENÜ (HEADER) */
 header {
-    height: 200px;
+    height: 150px;
     padding: 0 120px;
     display: flex;
     justify-content: space-between;
