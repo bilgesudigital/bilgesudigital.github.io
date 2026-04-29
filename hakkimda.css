@@ -136,10 +136,11 @@
         top: 2%;
     }
 
-    .bubble-two .bubble-text {
-        width: 72%;
-        max-width: 72%;
-        line-height: 1.32;
+      .bubble-two .bubble-text {
+        width: 88%;
+        max-width: 88%;
+        line-height: 1.28;
+        white-space: nowrap;
     }
 
     /* 3. BALON */
