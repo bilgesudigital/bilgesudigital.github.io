@@ -183,7 +183,7 @@ nav ul li a.active {
     right: 0;
     top: 0;
     width: 35%;
-    height: (100vh - 90px); 
+    height: (100vh); 
     z-index: 1;
 }
 
