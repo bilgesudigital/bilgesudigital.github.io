@@ -75,20 +75,22 @@ nav ul {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 3rem;
+    gap: 4.2rem;   /* menüler arası boşluk */
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
-    display: flex;
-    align-items: center;
+    display: inline-block;
     text-decoration: none;
-    color: #8A7360;
-    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.02rem;      /* yaklaşık 16.3px */
     font-weight: 400;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
     text-transform: uppercase;
     line-height: 1;
-    transition: color 0.3s ease;
+    color: #8A7360;          /* normal menü rengi */
+    transition: color 0.25s ease;
 }
 
 nav ul li a:hover {
