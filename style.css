@@ -96,6 +96,9 @@ nav ul li a {
 nav ul li a:hover {
     color: #C56F43;
 }
+nav ul li a.active {
+    color: #C56F43;
+}
 
 /* GİRİŞ BÖLÜMÜ (HERO) [cite: 13, 69, 163] */
 .hero {
